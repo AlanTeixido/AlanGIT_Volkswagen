@@ -1,4 +1,4 @@
-import org.example.readBoolean
+import org.example.*
 import java.util.Scanner
 
 fun main() {
@@ -8,20 +8,21 @@ fun main() {
     else normalOCamper = false
     var precioBase = calcularPreuBase(normalOCamper)
     var precioActual = calcularPreuActual(calcularPreuBase(normalOCamper))
-    println("El precio base de tu furgoneta es: " + precioBase + "€")
-    println("El precio actual de tu furgoneta es: " + precioActual + "€")
+    println("${BLUE}El precio base de tu furgoneta es: $precioBase€${RESET}")
+    println("${BLUE}El precio actual de tu furgoneta es: $precioActual€${RESET}")
 }
 
 fun pedirVersionFurgo(): Boolean {
-    println("¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?")
-    var versionFurgo = readBoolean("Introduce la versión de tu furgoneta", "introduce true/false")
+    println("${PURPLE}¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?${RESET}")
+    var versionFurgo = readBoolean("${GREEN}Introduce la versión de tu furgoneta${RESET}", "${RED}Introduce true/false${RESET}")
     if (versionFurgo) {
-        println("Tienes la furgoneta normal")
+        println("${GREEN}Tienes la furgoneta normal${RESET}")
     } else {
-        println("Tienes la versión Camper")
+        println("${GREEN}Tienes la versión Camper${RESET}")
     }
     return versionFurgo
 }
+
 
 fun readKM(message: String, kmMin: Int): Int {
     val scanner = Scanner(System.`in`)
@@ -31,11 +32,11 @@ fun readKM(message: String, kmMin: Int): Int {
         print(message)
         correctValue = scanner.hasNextInt()
         if (!correctValue) {
-            println("ERROR: introduce un número entero")
+            println("${RED}ERROR: Introduce un número entero${RESET}")
         } else {
             intValue = scanner.nextInt()
             if (intValue < kmMin) {
-                println("ERROR: el valor introducido debe ser mayor a 0")
+                println("${RED}ERROR: El valor introducido debe ser mayor a 0${RESET}")
                 correctValue = false
             }
         }
@@ -43,13 +44,11 @@ fun readKM(message: String, kmMin: Int): Int {
     } while (!correctValue)
     return intValue
 }
-
 fun menu() {
-    println("Bienvenido al mercado de vehículos")
+    println("${BLUE_BACKGROUND}Bienvenido al mercado de vehículos${RESET}")
 }
-
 fun depreciacionEstadoNeumaticos(): Int {
-    val estadoNeumaticos = llegirInt("Introduce los km recorridos con los neumáticos acutales:", 0, 500000)
+    val estadoNeumaticos = llegirInt("${GREEN}Introduce los km recorridos con los neumáticos actuales: ${RESET}", 0, 500000)
     val depreciacion: Int
     if (estadoNeumaticos < 5000) {
         depreciacion = 0
@@ -62,24 +61,17 @@ fun depreciacionEstadoNeumaticos(): Int {
 }
 
 fun portabicis(): Int {
-    val portabicis = readBoolean("Tiene portabicis?", "Incorrecte")
-    val suma250: Int
-
-    if (portabicis) suma250 = 250
-    else suma250 = 0
-
-    return suma250
+    val portabicisString = readLine()?.toBoolean() ?: false
+    return if (portabicisString) 250 else 0
 }
 
+
 fun porcentajeFurgo(): Double {
-
-    val porcentaje: Double
-
-    val añosfurgo = llegirDouble("Introduce los años de tu furgoneta", 0.0, 100.0)
-
-    if (añosfurgo < 6) porcentaje = 0.0001
-    else if (añosfurgo < 10) porcentaje = 0.0002
-    else porcentaje = 0.0004
-
+    val añosfurgo = llegirDouble("${GREEN}Introduce los años de tu furgoneta${RESET}", 0.0, 100.0)
+    val porcentaje: Double = when {
+        añosfurgo < 6 -> 0.0001
+        añosfurgo < 10 -> 0.0002
+        else -> 0.0004
+    }
     return porcentaje
 }
