@@ -1,68 +1,62 @@
-package org.example
-
+import org.example.readBoolean
 import java.util.Scanner
 
-fun main() {
-    val model = demanarModel()
-    val estatPneumatics = demanarEstatPneumatics()
-
-    val preuBase = calcularPreuBase(model)
-    val preuActual = calcularPreuActual(preuBase, estatPneumatics)
-
-    println("Preu base original de la furgo: $preuBase €")
-    println("Preu actual de la furgo: $preuActual €")
+fun main(){
+    menu()
+    var normalOCamper:Boolean
+    if (pedirVersionFurgo()) normalOCamper=true
+    else normalOCamper=false
+    var precioBase=calcularPreuBase(normalOCamper)
+    var precioActual=calcularPreuActual(calcularPreuBase(normalOCamper))
+    println("El precio base de tu furgoneta es: "+precioBase+"€")
+    println("El precio actual de tu furgoneta es: "+precioActual+"€")
 }
 
-fun demanarModel(): String {
-    val scanner = Scanner(System.`in`)
-    println("Té la Volkswagen Grand California 'normal' o la Camper Full Equip? (normal/camper)")
-    return scanner.nextLine().toLowerCase()
-}
-
-fun demanarEstatPneumatics(): Int {
-    val scanner = Scanner(System.`in`)
-    println("Quants quilòmetres tenen els pneumàtics?")
-    return readInt(scanner)
-}
-
-fun calcularPreuBase(model: String): Int {
-    return when (model) {
-        "normal" -> 73490
-        "camper" -> 93490
-        else -> {
-            println("Model no vàlid. S'usarà el preu base de la versió normal.")
-            73490
-        }
+fun pedirVersionFurgo():Boolean{
+    println("¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?")
+    var versionFurgo= readBoolean("Introduce la versión de tu furgoneta","introduce true/false")
+    if (versionFurgo){
+        println("Tienes la furgoneta normal")
+    }else{
+        println("Tienes la versión Camper")
     }
+    return versionFurgo
 }
 
-fun calcularPreuActual(preuBase: Int, estatPneumatics: Int): Int {
-    val depreciacio = 0.00001
-    val depreciacioPneumatics = when {
-        estatPneumatics < 5000 -> 0
-        estatPneumatics < 10000 -> 200
-        else -> 300
-    }
-
-    val depreciacioTotal = (preuBase * depreciacio * estatPneumatics).toInt() + depreciacioPneumatics
-    return preuBase - depreciacioTotal
-}
-
-fun readInt(scanner: Scanner): Int {
-    var valor: Int = 0
-    var correctType: Boolean
-
+fun readKM(message:String,kmMin:Int):Int{
+    val scanner=Scanner(System.`in`)
+    var intValue=0
+    var correctValue:Boolean
     do {
-        correctType = scanner.hasNextInt()
-
-        if (!correctType) {
-            println("ERROR: Siusplau, introdueix un número vàlid.")
-        } else {
-            valor = scanner.nextInt()
-            scanner.nextLine()
+        print(message)
+        correctValue=scanner.hasNextInt()
+        if (!correctValue){
+            println("ERROR: introduce un número entero")
+        }else{
+            intValue=scanner.nextInt()
+            if (intValue<kmMin){
+                println("ERROR: el valor introducido debe ser mayor a 0")
+                correctValue=false
+            }
         }
+        scanner.nextLine()
+    }while (!correctValue)
+    return intValue
+}
 
-    } while (!correctType)
+fun menu(){
+    println("Bienvenido al mercado de vehículos")
+}
 
-    return valor
+fun depreciacionEstadoNeumaticos():Int{
+    var estadoNeumaticos=llegirInt("Introduce los km recorridos con los neumáticos acutales:",0,500000)
+    var depreciacion:Int
+    if (estadoNeumaticos<5000){
+        depreciacion=0
+    }else if (estadoNeumaticos>=5000 && estadoNeumaticos<10000){
+        depreciacion=200
+    }else{
+        depreciacion=300
+    }
+    return depreciacion
 }
