@@ -7,6 +7,6 @@ fun calcularPreuBase(normal:Boolean):Double{
 }
 
 fun calcularPreuActual(preuBase:Double):Double{
-    val preuActual:Double=preuBase-preuBase*0.00001*readKM("Introduce los km de tu furgoneta: ",0)
+    val preuActual:Double=preuBase-preuBase*porcentajeFurgo()*readKM("Introduce los km de tu furgoneta: ",0)
     return  preuActual-depreciacionEstadoNeumaticos()
 }
