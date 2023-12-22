@@ -1,8 +1,11 @@
 # Proyecto Volkswagen - Furgonetas
 
-Bienvenido al Proyecto Volkswagen para el cálculo de precios de furgonetas. Este proyecto te ayuda a determinar el precio base y actualizado de tu furgoneta según varios factores, como la versión y si tiene un porta bicis.
+Bienvenido al Proyecto Volkswagen, donde los números no son solo kilómetros y los bits también recorren carreteras digitales.
 
----
+...
+
+¡Código, café y carreteras interminables! 🚐🚀
+
 
 ## Descripción del Proyecto
 
