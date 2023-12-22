@@ -10,9 +10,8 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 
 ---
 
-## Instrucciones de Ejecución
+## Atajo Rápido al Código
 
-1. **Clonar el Repositorio:**
-   ```bash
-   git clone <url-del-repositorio>
-   cd ALANGIT_Volkswagen
+- [Main.kt](src/main/kotlin/Main.kt): Punto de entrada principal del programa.
+- [PrecioCalculations.kt](src/main/kotlinFuncionsVW.kt): Funciones para calcular precios de furgonetas.
+- [UserInput.kt](src/main/kotlin/FuncionsEntrada.kt): Funciones para la entrada de usuario.
