@@ -22,10 +22,10 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 ![Vista del gradle](https://i.imgur.com/FeKXE3V.png)
 
 ### Execució 1
-![Execució 1]((https://i.imgur.com/T7bJYs9.png))
+![Execució 1](https://i.imgur.com/T7bJYs9.png)
 
 ### Execució 2
-![Execució 2]((https://i.imgur.com/s43AD42.png))
+![Execució 2](https://i.imgur.com/s43AD42.png)
 
 ---
 
