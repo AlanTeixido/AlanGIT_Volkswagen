@@ -1,7 +1,10 @@
 import org.example.*
 
 /**
- * Función principal que ejecuta el programa.
+ * Programa principal que muestra información sobre una furgoneta.
+ *
+ * @autor Alan Teixido
+ * @version 1.0
  */
 fun main() {
     mostrarAsciiArt()
