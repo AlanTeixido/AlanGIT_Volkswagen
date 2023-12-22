@@ -12,20 +12,20 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 
 ## Imágenes
 
-### Ilustrativa
+### Ilustriva
 ![Imagen Ilustrativa](https://i.imgur.com/T7bJYs9.png)
 
-### Ejecución 1
-![Ejecución 1](url-imagen-ejecucion1)
+### Vista de Main.kt
+![Vista de Main.kt](https://i.imgur.com/yNkFJcQ.png)
 
-### Ejecución 2
-![Ejecución 2](url-imagen-ejecucion2)
+### Vista del gradle
+![Vista del gradle](https://i.imgur.com/FeKXE3V.png)
 
-### Código 1
-![Código 1](url-imagen-codigo1)
+### Execució 1
+![Execució 1]((https://i.imgur.com/T7bJYs9.png))
 
-### Código 2
-![Código 2](url-imagen-codigo2)
+### Execució 2
+![Execució 2]((https://i.imgur.com/s43AD42.png))
 
 ---
 
