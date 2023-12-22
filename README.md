@@ -10,8 +10,23 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 
 ---
 
+## Requisitos del Sistema
+
+Asegúrate de tener instalado Kotlin y Gradle en tu máquina antes de ejecutar el proyecto.
+
+- Kotlin: [Instalación de Kotlin](https://kotlinlang.org/docs/tutorials/command-line.html)
+- Gradle: [Instalación de Gradle](https://gradle.org/install/)
+
+---
+
 ## Atajo Rápido al Código
 
 - [Main.kt](src/main/kotlin/Main.kt): Punto de entrada principal del programa.
 - [PrecioCalculations.kt](src/main/kotlin/funcionsVW.kt): Funciones para calcular precios de furgonetas.
 - [FuncionsEntrada.kt](src/main/kotlin/FuncionsEntrada.kt): Funciones para la entrada de usuario.
+
+---
+
+## Licencia
+
+Este proyecto está bajo la Licencia [MIT](LICENSE).
