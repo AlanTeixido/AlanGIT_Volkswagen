@@ -49,8 +49,9 @@ fun menu() {
  * @return true si la furgoneta es la versión normal, false si es la versión Camper.
  */
 fun pedirVersionFurgo(): Boolean {
-    println(CYAN + "¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?"+RESET)
-    var versionFurgo = readBoolean(BLUE + "Introduce la versión de tu furgoneta:" + RESET, RED + "introduce true/false" + RESET)
+    println(CYAN + "¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?" + RESET)
+    var versionFurgo =
+        readBoolean(BLUE + "Introduce la versión de tu furgoneta:" + RESET, RED + "introduce true/false" + RESET)
 
     // Muestra un mensaje indicando la versión de la furgoneta.
     if (versionFurgo) {
@@ -67,7 +68,8 @@ fun pedirVersionFurgo(): Boolean {
  * @return true si la furgoneta tiene portabicis, false si no.
  */
 fun pedirTienePortaBicis(): Boolean {
-    var portaBicis = readBoolean(BLUE + "¿Tiene portabicis tu furgoneta?:" + RESET, RED + "introduce true/false" + RESET)
+    var portaBicis =
+        readBoolean(BLUE + "¿Tiene portabicis tu furgoneta?:" + RESET, RED + "introduce true/false" + RESET)
 
     // Muestra un mensaje indicando si la furgoneta tiene portabicis o no.
     if (portaBicis) println(GREEN + "Tu furgoneta tiene portabicis" + RESET)
