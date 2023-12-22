@@ -13,7 +13,7 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 ## Imágenes
 
 ### Ilustriva
-![Imagen Ilustrativa](https://i.imgur.com/T7bJYs9.png)
+![Imagen Ilustrativa](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Volkswagen_logo_2019.svg/600px-Volkswagen_logo_2019.svg.png)
 
 ### Vista de Main.kt
 ![Vista de Main.kt](https://i.imgur.com/yNkFJcQ.png)
