@@ -13,7 +13,7 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 ## Imágenes
 
 ### Ilustrativa
-![Imagen Ilustrativa]([url-imagen-ilustrativ](https://imgur.com/a/pxMKCvk)a)
+![Imagen Ilustrativa](https://i.imgur.com/T7bJYs9.png)
 
 ### Ejecución 1
 ![Ejecución 1](url-imagen-ejecucion1)
