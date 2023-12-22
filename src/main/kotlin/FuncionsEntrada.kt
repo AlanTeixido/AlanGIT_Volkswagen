@@ -1,3 +1,5 @@
+import org.example.RED
+import org.example.RESET
 import java.util.Scanner
 
 fun llegirInt(mensaje:String,intMin:Int,intMax:Int):Int{
@@ -8,12 +10,12 @@ fun llegirInt(mensaje:String,intMin:Int,intMax:Int):Int{
         print("$mensaje ")
         valorCorrecto=scan.hasNextInt()
         if (!valorCorrecto){
-            println("ERROR: introduce un número entero")
+            println(RED+"ERROR: introduce un número entero"+RESET)
         }else{
             valorInt=scan.nextInt()
             if (valorInt<intMin || valorInt>intMax){
                 valorCorrecto=false
-                println("ERROR: Introduce un número entre los valores requeridos")
+                println(RED+"ERROR: Introduce un número entre los valores requeridos"+RESET)
             }
         }
         scan.nextLine()
@@ -21,7 +23,7 @@ fun llegirInt(mensaje:String,intMin:Int,intMax:Int):Int{
     return valorInt
 }
 
-fun llegirLong(mensaje:String,intMin:Long,intMax:Long): Long {
+fun llegirLong(mensaje:String,longMin:Long): Long {
     val scan=Scanner(System.`in`)
     var valorLong:Long=0
     var valorCorrecto:Boolean
@@ -29,12 +31,12 @@ fun llegirLong(mensaje:String,intMin:Long,intMax:Long): Long {
         print("$mensaje ")
         valorCorrecto=scan.hasNextLong()
         if (!valorCorrecto){
-            println("ERROR: introduce un número entero")
+            println( RED +"ERROR: introduce un número entero"+ RESET)
         }else{
             valorLong= scan.nextLong()
-            if (valorLong<intMin || valorLong>intMax){
+            if (valorLong<longMin){
                 valorCorrecto=false
-                println("ERROR: Introduce un número entre los valores requeridos")
+                println(RED+"ERROR: Introduce un número mayor a 0"+RESET)
             }
         }
         scan.nextLine()
@@ -50,12 +52,12 @@ fun llegirDouble(mensaje:String,intMin:Double,intMax:Double):Double{
         print("$mensaje ")
         valorCorrecto=scan.hasNextInt()
         if (!valorCorrecto){
-            println("ERROR: introduce un número entero")
+            println(RED+"ERROR: introduce un número decimal"+RESET)
         }else{
             valorDouble=scan.nextDouble()
             if (valorDouble<intMin || valorDouble>intMax){
                 valorCorrecto=false
-                println("ERROR: Introduce un número entre los valores requeridos")
+                println(RED+"ERROR: Introduce un número entre los valores requeridos"+RESET)
             }
         }
         scan.nextLine()

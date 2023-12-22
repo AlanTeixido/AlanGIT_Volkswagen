@@ -1,77 +1,61 @@
 import org.example.*
-import java.util.Scanner
 
-fun main() {
+fun main(){
     menu()
-    var normalOCamper: Boolean
-    if (pedirVersionFurgo()) normalOCamper = true
-    else normalOCamper = false
-    var precioBase = calcularPreuBase(normalOCamper)
-    var precioActual = calcularPreuActual(calcularPreuBase(normalOCamper))
-    println("${BLUE}El precio base de tu furgoneta es: $precioBase€${RESET}")
-    println("${BLUE}El precio actual de tu furgoneta es: $precioActual€${RESET}")
+    val normalOCamper:Boolean = pedirVersionFurgo()
+    val suma250:Boolean = pedirTienePortaBicis()
+    val sumaYa250:Int
+    if (suma250) sumaYa250=250
+    else sumaYa250=0
+    val precioBase=calcularPreuBase(normalOCamper)+sumaYa250
+    val precioActual=calcularPreuActual(calcularPreuBase(normalOCamper))+sumaYa250
+    println(BLACK_BOLD+ WHITE_UNDERLINED +"El precio base de tu furgoneta es: "+precioBase+"€"+RESET)
+    println(BLACK_BOLD+ WHITE_UNDERLINED +"El precio actual de tu furgoneta es: "+precioActual+"€"+ RESET)
 }
 
-fun pedirVersionFurgo(): Boolean {
-    println("${PURPLE}¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?${RESET}")
-    var versionFurgo = readBoolean("${GREEN}Introduce la versión de tu furgoneta${RESET}", "${RED}Introduce true/false${RESET}")
-    if (versionFurgo) {
-        println("${GREEN}Tienes la furgoneta normal${RESET}")
-    } else {
-        println("${GREEN}Tienes la versión Camper${RESET}")
+fun menu(){
+    println("Bienvenido al mercado de vehículos")
+
+}
+
+fun pedirVersionFurgo():Boolean{
+    println(CYAN+"¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?"+RESET)
+    var versionFurgo= readBoolean(BLUE+"Introduce la versión de tu furgoneta:"+RESET, RED +"introduce true/false" + RESET)
+    if (versionFurgo){
+        println(PURPLE+"Tienes la furgoneta normal"+RESET)
+    }else{
+        println(PURPLE+"Tienes la versión Camper"+RESET)
     }
     return versionFurgo
 }
 
+fun pedirTienePortaBicis():Boolean{
+    var portaBicis=readBoolean(BLUE+"¿Tiene portabicis tu furgoneta?:"+RESET,"introduce true/false")
+    if (portaBicis) println(PURPLE+"Tu furgoneta tiene portabicis"+RESET)
+    else println(PURPLE+"Tu furgoneta no tiene portabicis"+RESET)
+    return portaBicis
+}
 
-fun readKM(message: String, kmMin: Int): Int {
-    val scanner = Scanner(System.`in`)
-    var intValue = 0
-    var correctValue: Boolean
-    do {
-        print(message)
-        correctValue = scanner.hasNextInt()
-        if (!correctValue) {
-            println("${RED}ERROR: Introduce un número entero${RESET}")
-        } else {
-            intValue = scanner.nextInt()
-            if (intValue < kmMin) {
-                println("${RED}ERROR: El valor introducido debe ser mayor a 0${RESET}")
-                correctValue = false
-            }
-        }
-        scanner.nextLine()
-    } while (!correctValue)
-    return intValue
-}
-fun menu() {
-    println("${BLUE_BACKGROUND}Bienvenido al mercado de vehículos${RESET}")
-}
-fun depreciacionEstadoNeumaticos(): Int {
-    val estadoNeumaticos = llegirInt("${GREEN}Introduce los km recorridos con los neumáticos actuales: ${RESET}", 0, 500000)
-    val depreciacion: Int
-    if (estadoNeumaticos < 5000) {
-        depreciacion = 0
-    } else if (estadoNeumaticos >= 5000 && estadoNeumaticos < 10000) {
-        depreciacion = 200
-    } else {
-        depreciacion = 300
+fun depreciacionEstadoNeumaticos():Int{
+    var estadoNeumaticos=llegirLong(BLUE+"Introduce los km recorridos con los neumáticos acutales:"+RESET,0)
+    println(PURPLE+"Los neumáticos actuales de tu furgoneta han reccorrido "+estadoNeumaticos+"km"+RESET)
+    var depreciacion:Int
+    if (estadoNeumaticos<5000){
+        depreciacion=0
+    }else if (estadoNeumaticos>=5000 && estadoNeumaticos<10000){
+        depreciacion=200
+    }else{
+        depreciacion=300
     }
     return depreciacion
 }
 
-fun portabicis(): Int {
-    val portabicisString = readLine()?.toBoolean() ?: false
-    return if (portabicisString) 250 else 0
-}
-
-
-fun porcentajeFurgo(): Double {
-    val añosfurgo = llegirDouble("${GREEN}Introduce los años de tu furgoneta${RESET}", 0.0, 100.0)
-    val porcentaje: Double = when {
-        añosfurgo < 6 -> 0.0001
-        añosfurgo < 10 -> 0.0002
-        else -> 0.0004
-    }
+fun porcentajeKM():Double{
+    var porcentaje:Double
+    var anosFurgo=llegirInt(BLUE+"Introduce los años de tu furgoneta:"+RESET,0,100)
+    println(PURPLE+"Tu furgoneta lleva matriculada "+anosFurgo+" años"+RESET)
+    if (anosFurgo<6) porcentaje=0.00001
+    else if (anosFurgo>=6 && anosFurgo<10) porcentaje=0.00002
+    else porcentaje=0.00004
     return porcentaje
 }
