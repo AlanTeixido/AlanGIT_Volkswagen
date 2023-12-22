@@ -13,5 +13,5 @@ El proyecto utiliza Kotlin y está configurado con Gradle. Incluye funciones par
 ## Atajo Rápido al Código
 
 - [Main.kt](src/main/kotlin/Main.kt): Punto de entrada principal del programa.
-- [PrecioCalculations.kt](src/main/kotlinFuncionsVW.kt): Funciones para calcular precios de furgonetas.
-- [UserInput.kt](src/main/kotlin/FuncionsEntrada.kt): Funciones para la entrada de usuario.
+- [PrecioCalculations.kt](src/main/kotlin/funcionsVW.kt): Funciones para calcular precios de furgonetas.
+- [FuncionsEntrada.kt](src/main/kotlin/FuncionsEntrada.kt): Funciones para la entrada de usuario.
